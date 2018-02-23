@@ -8,6 +8,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
     rwebsocket = None
     rddata = None
     async def handler(self):
+        print('handler(self):')
         try:
             request_line, headers = await websockets.http.read_message(self.reader)
             method, path, version = request_line[:-2].decode().split(None, 2)
@@ -38,6 +39,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
 
 
     async def http_handler(self, method, path, version):
+        print("async def http_handler(self, method, path, version):")
         response = ''
         try:
 
@@ -75,6 +77,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
         self.writer.write(response.encode())
 
 def updateData(data):
+    print('updateData(data)')
     HttpWSSProtocol.rddata = data
 
 async def ws_handler(websocket, path):
