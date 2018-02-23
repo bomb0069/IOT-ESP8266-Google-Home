@@ -95,7 +95,7 @@ async def ws_handler(websocket, path):
 
 port = int(os.getenv('PORT', 5687))
 start_server = websockets.serve(ws_handler, '', port, klass=HttpWSSProtocol)
-print('Listening on port ' + port)
+print('Listening on port ' + str(port))
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
