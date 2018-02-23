@@ -45,6 +45,7 @@ class HttpWSSProtocol(websockets.WebSocketServerProtocol):
 
             googleRequest = self.reader._buffer.decode('utf-8')
             print("googleRequest = self.reader._buffer.decode('utf-8')")
+            print(str(googleRequest))
             googleRequestJson = json.loads(googleRequest)
             print("googleRequestJson = json.loads(googleRequest)")
 
