@@ -78,6 +78,7 @@ def updateData(data):
     HttpWSSProtocol.rddata = data
 
 async def ws_handler(websocket, path):
+    print('ws_handler')
     game_name = 'g1'
     try:
         HttpWSSProtocol.rwebsocket = websocket
